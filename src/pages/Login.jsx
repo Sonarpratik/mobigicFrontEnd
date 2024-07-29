@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userLogin } from "../features/authfunctions/userLogin";
 
 const Login = () => {
@@ -102,12 +102,13 @@ const Login = () => {
                       className="text-red-600 text-sm mt-1"
                     />
                     <div className="text-sm">
-                        <a
-                          href="/register"
+                        <Link
+                          to="/register"
                           className="font-semibold text-indigo-600 hover:text-indigo-500"
                         >
-                          Register
-                        </a>
+                                                   Dont Have Any Account
+
+                        </Link>
                       </div>
                   </div>
 

@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { useCreateUserMutation } from "../features/allApi";
 import InputField from "../atom/InputField";
 import EResponse from "../atom/EResponse";
+import { Link } from "react-router-dom";
 
 const handleFormSubmit = ({
   values,
@@ -65,17 +66,21 @@ const Register = () => {
         type={"create"}
         navigateTo={"/login"}
       />
-      <div className="flex min-h-full flex-1 flex-col justify-center  lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          {/* <img
-                        className="mx-auto h-10 w-auto"
-                        src={KsLogo}
-                        alt="Your Company"
-                    /> */}
-          <h2 className=" text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Register your account
-          </h2>
-        </div>
+   <div className="flex min-h-[80vh] flex-1 flex-col justify-center items-center">
+        <h2 className="mt-10 text-center text-3xl font-semibold leading-9 tracking-tight text-gray-900">
+          Mobigic
+        </h2>
+        <div className=" px-6  w-[32rem] rounded-lg py-6 lg:px-8  shadow dark:border dark:bg-gray-lightest backdrop-blur-sm hover:backdrop-blur-lg dark:border-gray-200">
+          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+            {/* <img
+            className="mx-auto h-10 w-auto"
+            src={KsLogo}
+            alt="Your Company"
+          /> */}
+            <h2 className="mt-10 text-center text-2xl font-medium leading-9 tracking-tight text-gray-900">
+              Sign In
+            </h2>
+          </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full ">
           <Formik
@@ -88,15 +93,35 @@ const Register = () => {
               })
             }
           >
-            {({ isSubmitting, setFieldValue, error }) => (
-              <Form className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {/* {console.log(error)} */}
+            {({ isSubmitting, setFieldValue, errors }) => (
+              <Form className="space-y-6">
+                {console.log(errors)}
             
 
               
 
           
 
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Name
+                  </label>
+                  <Field
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 pl-2 shadow-sm ring-1 ring-inset focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                  <ErrorMessage
+                    name="name"
+                    component="div"
+                    className="text-red-600 text-sm mt-1"
+                  />
+                </div>
                 <div>
                   <label
                     htmlFor="email"
@@ -183,7 +208,14 @@ const Register = () => {
                       label={"Confirm Password"}
                     />
             
-
+            <div className="text-sm">
+                        <Link
+                          to="/login"
+                          className="font-semibold text-indigo-600 hover:text-indigo-500"
+                        >
+                         Have An Account
+                        </Link>
+                      </div>
                 <div>
                   <button
                     type="submit"
@@ -200,6 +232,7 @@ const Register = () => {
               </Form>
             )}
           </Formik>
+        </div>
         </div>
       </div>
     </>
