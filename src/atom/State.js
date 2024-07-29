@@ -1,6 +1,6 @@
 import { url } from "../features/url";
 
-export const handleDownload=async (file)=>{
+export const handleDownloadFIle=async (file)=>{
     const url2 = `${url}/${file}`;
     try {
       // Fetch the file

@@ -11,7 +11,7 @@ import {
     DeleteOutlined,
     DownloadOutlined,
   } from "@ant-design/icons";
-import { handleDownload } from "../atom/State";
+import { handleDownloadFIle } from "../atom/State";
 
 const Home = () => {
   const {
@@ -82,7 +82,7 @@ const Home = () => {
               alignItems: "center",
               cursor: "pointer",
             }}
-            onClick={() => handleDownload(record?.file)}
+            onClick={() => handleDownloadFIle(record?.file)}
           >
             <DownloadOutlined style={{fontSize:"20px"}}/>
           </div>

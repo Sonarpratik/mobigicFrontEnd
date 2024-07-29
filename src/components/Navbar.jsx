@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/userSlice";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,10 @@ const Navbar = () => {
       }}
     >
       <h1 style={{ textAlign: "center", fontSize: "20px" }}>
-        Mobigic =<a href="/download">Download url Link</a>
+        <Link to={"/"}>
+        Mobigic
+        </Link>
+         =<Link to="/download">Download url Link</Link>
       </h1>
       {user?._id ? (
         <div style={{ cursor: "pointer" }} onClick={() => dispatch(logout())}>
